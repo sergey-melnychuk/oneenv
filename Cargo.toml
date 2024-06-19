@@ -1,0 +1,10 @@
+[package]
+name = "oneenv"
+version = "0.1.0"
+edition = "2021"
+authors = ["sergey-melnychuk"]
+repository = "https://github.com/sergey-melnychuk/oneenv"
+description = "One Env: manage local env vars in a single file"
+license = "MIT"
+
+[dependencies]
