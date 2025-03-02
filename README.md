@@ -9,11 +9,17 @@ cp ./target/release/oneenv ~/.cargo/bin/
 ```
 
 ```
+## MacOS
 $ vim ~/.zshrc
-## https://superuser.com/a/735969
+...
 precmd() {
-  oneenv | while read -r line; do eval "export $line"; done
+  local X=$(oneenv); eval "$X"
 }
+
+## Linux
+$ vim ~/.bashrc
+...
+PROMPT_COMMAND='X=$(oneenv); eval "$X"'
 ```
 
 ```
