@@ -1,5 +1,4 @@
 fn main() {
-    #[allow(deprecated)]
     let home = std::env::home_dir().unwrap();
     let work = std::env::current_dir().unwrap();
 
@@ -23,11 +22,12 @@ fn main() {
         chunk
             .iter()
             .skip(1)
+            .filter(|line| !line.starts_with('#'))
             .filter_map(|line| line.split_once('='))
             .for_each(|(key, value)| {
                 keys.push(key.to_owned());
                 let value = value.trim_end();
-                println!("export {key}={value}")
+                println!("export {key}=\"{value}\"")
             });
         println!("export ONEENV={}", keys.join(":"))
     }
